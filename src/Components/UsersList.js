@@ -31,10 +31,11 @@ const offline= {
                     <ul>
                         {props.users.map((user)=>{
                             const onlineState = (user.presence.state === 'online'? online : offline) // condition active style when the user is online
+                            const offlineState = (user.presence.state === 'online'? '' : '   (offline)')
                             return(
                                     <li key={user.id}
                                     style={offline, onlineState}>
-                                    {user.name}
+                                    {user.name}{offlineState}
                                     </li>
                             )
                         })}
